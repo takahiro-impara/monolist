@@ -4,7 +4,7 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% if item != nil %>
+            <% if item.get('MediumImage/URL') != nil %>
               <img src="<%= item.get('MediumImage/URL') %>" />
             <% else %>
               <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
