@@ -27,14 +27,16 @@
       <div class="side-box">
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
-          <% # TODO Haveしたユーザー一覧 %>
-
+          <% @item.have_users do |user| %>
+            <%= link_to gravatar_for(user, size: 30), user %>
+            <%= user.name %>
+          <% end %>
         </div>
       </div>
       <div class="side-box">
         <h4 class="side-box-title">Wantしたユーザー</h4>
         <div class="side-box-body">
-          <% # TODO Wantしたユーザー一覧 %>
+          <%= %>
         </div>
       </div>
       <div class="text-center">
