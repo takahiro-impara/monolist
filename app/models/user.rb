@@ -44,7 +44,8 @@ class User < ActiveRecord::Base
   end
 
   def have?(item)
-		haves.include?(item_id: item.id)
+		#haves.include?(item_id: item.id)　←ここ変更
+		have_items.include?(item)
   end
 
   def want(item)
@@ -56,6 +57,7 @@ class User < ActiveRecord::Base
   end
 
   def want?(item)
-		wants.include?(item_id: item.id)
+		#wants.include?(item_id: item.id)　←ここ変更
+		want_items.include?(item)
   end
 end
