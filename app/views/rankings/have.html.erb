@@ -1,35 +1,37 @@
 <% rank_tmp=1 %>
-</br>
 <div class="container">
-       <ul >
-              <% @items.each_with_index do |item, i| %>
-              <div class="rank-single-main">
-                     <div = "rankscore">
-                            <div class = "ranking">
-                            <% if @values[i] == @values[i-1]%>
-                                   <%= rank_tmp %>位
-                            <% else %>
-                                   <%= i+1 %>位
-                                   <% rank_tmp = i+1 %>
-                            <% end %>
-                            </div>
-                     <p><%= @values[i] %>人がhaveしています</p>
-                     </div>
-                     <div class="image">
-                            <div class="img-wrap">
-                                   <% if item.medium_image.present? %>
-                                          <%= link_to image_tag(item.medium_image , alt: item.title) , item %>
-                                   <% else %>
-                                          <%= link_to image_tag("no-image.png" , alt: item.title) , item %>
-                                   <% end %>
-                            </div>
-                     </div>
-                     <div class="rankcomment">
-                     <%= link_to item.title , item %>
-                     </br>
-                     </div>
-              </div>
-              <div role="separator" class="divider"></br></div>
-              <% end %>
-       </ul>
+  <div class="container-inner inner-default clearfix">
+    <% @items.each_with_index do |item, i| %>
+      <div class="item-box">
+       <div class="ranking">
+       <% if @values[i] == @values[i-1]%>
+              <%= rank_tmp %>位
+       <% else %>
+              <%= i+1 %>位
+              <% rank_tmp = i+1 %>
+       <% end %>
+       <p><%= @values[i] %>人がhaveしています</p>
+       </div>
+        <div class="image">
+          <div class="img-wrap">
+            <% if item.large_image.present? %>
+              <%= image_tag(item.large_image , alt: item.title) %>
+            <% elsif item.medium_image.present? %>
+              <%= image_tag(item.medium_image , alt: item.title) %>
+            <% elsif item.small_image.present?%>
+              <%= image_tag(item.small_image , alt: item.title) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: item.title) %>
+            <% end %>
+          </div>
+        </div>
+        <div class="detail">
+          <p class="title">
+            <%= link_to item.title , item %>
+          </p>
+        </div>
+        <% render 'items/action' , item: item if logged_in? %>
+      </div>
+    <% end %>
+  </div>
 </div>
