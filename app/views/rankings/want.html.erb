@@ -1,16 +1,32 @@
 <% tmp=1 %>
-<ul class="ranking">
-       <% @items.each_with_index do |item, i| %>
-       <ul>
-              <% if @values[i] == @values[i-1]%>
-                     <%= tmp %>位
-              <% else %>
-                     <%= i+1 %>位
-                     <% tmp = i+1 %>
+</br>
+<div class="container">
+       <ul >
+              <% @items.each_with_index do |item, i| %>
+              <div class="rank-single-main">
+              <ul>
+                     <div = "rankscore">
+                            <div class = "ranking">
+                            <% if @values[i] == @values[i-1]%>
+                                   <%= tmp %>位
+                            <% else %>
+                                   <%= i+1 %>位
+                                   <% tmp = i+1 %>
+                            <% end %>
+                            </div>
+                     <p><%= @values[i] %>人がwantしています</p>
+                     </div>
+                     
+                     <div class="image">
+                            <%= link_to image_tag(item.medium_image , alt: item.title) , item %>
+                     </div>
+                     <div class="rankcomment">
+                     <%= link_to item.title , item %>
+                     </br>
+                     </div>
+              </ul>
+              </div>
+              <div role="separator" class="divider"></br></div>
               <% end %>
-              <%= @values[i] %>人がwantしています
-              <%= link_to image_tag(item.small_image , alt: item.title) , item %>
-              <%= link_to item.title , item %>
        </ul>
-       <% end %>
-</ul>
+</div>
