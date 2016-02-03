@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   
   def new
+    @title = '会員登録' #タイトル変数セット
     @user = User.new
   end
   
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @title = @user.name #タイトル変数セット
     @items = @user.items.group('items.id')
   end
 

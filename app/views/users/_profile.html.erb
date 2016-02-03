@@ -1,6 +1,7 @@
-<% content_for :usershow do %>
-  <title><%= user.name %>- monolist</title>
-<% end %>
+<!--ここコントローラーに変数@titleをセットしたので、タイトル削っています。タイトルはapplication.htmlの方で読まれています。-->
+<%# content_for :usershow do %>
+  <!--<title><%#= user.name %>- monolist</title>-->
+<%# end %>
 <div class="user-profile">
   <div class="icon">
     <%= gravatar_for user, size: 100 %>

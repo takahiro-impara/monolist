@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks　←ここ外してます。metatagが再読み込みされないため。
 //= require_tree .
 //= require bootstrap-sprockets

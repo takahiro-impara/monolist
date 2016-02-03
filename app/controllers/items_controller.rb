@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    #タイトル変数をセット
+    @title = @item.title
     @have_users = @item.have_users
     @want_users = @item.want_users
   end

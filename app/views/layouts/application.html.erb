@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% if content_for?(:head) %>
-    <%= yield :head %>
-  <% elsif content_for?(:itemshow)%>
-    <%= yield :itemshow %>
-  <% elsif content_for?(:usershow)%>
-    <%= yield :usershow %>
-  <% else %>
-    <title>Monolist</title>
-  <% end %>
+  <title><%= @title ? "#{@title} - monolist" : 'monolist' %></title>
+<%#= <!--増えていたシンボルごとざくっと消しました。結局の所、シンボルである:headを各コントローラーで使い回すわけです。--> %>
+<%#= <!--後、elsifの多用もダメです。以前お話した通り、一見問題なくとも意図しない分岐となりえますし、何より美しくないです。--> %>
+  <%# if content_for?(:head) %>
+   <%= yield :head %>
+  <%# elsif content_for?(:itemshow)%> 
+    <%#= yield :itemshow %>
+  <%# elsif content_for?(:usershow)%>
+    <%#= yield :usershow %>
+  <%# else %>
+  <%# end %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
