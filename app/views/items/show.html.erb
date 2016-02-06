@@ -1,11 +1,4 @@
-<!--この:itemshow の部分:head　で良いですよね。apprication.html.erbですでに設定してあるので、使いましょう。-->
-<!--後は、descriptionのタグの後ろ/を抜いています。つけて開発画面で見比べてみてください。-->
-<!--タイトルもコントローラーに変数@title入れたので、削りました。変数はapprication.html.erbで読み込まれています。-->
 
-<%# content_for :itemshow do %>
-  <!--<title><%#= @item.title %>- monolist</title>-->
-  <!--<meta name="description" content="<%#= @item.title %>に関する情報です。この商品を欲しい人、持ってる人を表示しています。" />-->
-<%# end %>
 <% content_for :head do %>
   <meta name=”description” content="<%= @item.title %>に関する情報です。この商品を欲しい人、持ってる人を表示しています。">
 <% end %>
